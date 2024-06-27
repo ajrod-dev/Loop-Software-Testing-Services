@@ -1,19 +1,39 @@
-Challenges:
-During implementation of the tests using PlayWright, I found a challenge on the last step(Column Verification) because there were nested div elements in Asana.
+# Playwright Data-Driven Test Project
 
-Spent too much time traversing parent elements of the card to confirm it was in the right column.
+## Installation Instructions
 
-*Solution: 
-Instead, I located the parent element of the column title using the 'filter' method.
+1. **Install Node.js and npm**
+   - Download and install Node.js from [Node.js official website](https://nodejs.org/).
 
-Additionally, I used the 'innerText' method once I retrieved the parent element to receive the strings of sub-titles.
+2. **Initialize Git Repository**
+   - Open your terminal and navigate to the project folder.
+   - Run the following commands to initialize a Git repository:
+     ```sh
+     git init
+     git add .
+     git commit -m "Initial commit"
+     git branch -M main
+     git remote add origin <your-github-repo-url>
+     git push -u origin main
+     ```
 
-This resulted in me using 'includes' method to check whether the parent element had the 'card_title'
+3. **Install Playwright**
+   - Run the following command to install Playwright and its dependencies:
+     ```sh
+     npm init -y
+     npm install @playwright/test
+     npx playwright install
+     ```
 
-Recommendations:
-Playwright’s feature use: XPath works well, but if there is future editing of the UI, then it could break tests so it's beneficial to use Playwright features like getByRole, getByText, and locator methods.
+4. **Run the Tests**
+   - Use the following command to run your Playwright tests:
+     ```sh
+     npx playwright test
+     ```
 
-Error Handling: Implement more comprehensive error handling and logging within the tests. This can help in quickly diagnosing issues when elements are not found or when tests fail due to changes in the UI.
+## Resources
+- Playwright Documentation: [Playwright Docs](https://playwright.dev/docs/intro)
 
-Test Case Updates: Regularly update the test cases and selectors in response to changes in the application's UI. This will result in maintaining the accuracy and relevance of the tests for the future.
-
+## Note
+- Ensure you have a `tests` directory with your test files inside.
+- Make sure your `playwright.config.js` is correctly configured if needed.
